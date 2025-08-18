@@ -1,0 +1,24 @@
+{
+  "name": "yelp_camp",
+  "version": "1.0.0",
+  "description": "A locator app of campgrounds with their associated information and reviews.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yelp",
+    "camp",
+    "campgrounds",
+    "mongo",
+    "ejs",
+    "js"
+  ],
+  "author": "Tassos Venetikidis",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.1"
+  }
+}
