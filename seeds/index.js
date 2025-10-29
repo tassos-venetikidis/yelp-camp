@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Campground = require("../models/campground");
+const Review = require("../models/review");
 const cities = require("./cities");
 const { descriptors, places } = require("./seedHelpers");
 
@@ -15,12 +16,14 @@ mongoose
 
 const seedDB = async () => {
   await Campground.deleteMany({});
+  await Review.deleteMany({});
   for (let i = 0; i < 50; i++) {
     let randomCityNumber = Math.floor(Math.random() * cities.length);
     let randomDescriptorNumber = Math.floor(Math.random() * descriptors.length);
     let randomPlacesNumber = Math.floor(Math.random() * places.length);
     let price = Math.floor(Math.random() * 30 + 20);
     let campgroundSeedling = new Campground({
+      author: "68fb5ddcd5350a45acd61cc0",
       title: `${descriptors[randomDescriptorNumber]} ${places[randomPlacesNumber]}`,
       location: `${cities[randomCityNumber].city}, ${cities[randomCityNumber].state}`,
       image: `https://picsum.photos/400?random=${Math.random()}`,
