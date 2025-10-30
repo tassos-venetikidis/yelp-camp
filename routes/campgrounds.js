@@ -5,13 +5,21 @@ const {
   isAuthorized,
   validateCampground,
 } = require("../middleware");
+const multer = require("multer");
+const { storage } = require("../cloudinary/index");
+const upload = multer({ storage });
 
 const router = express.Router();
 
 router
   .route("/")
   .get(campgroundControllers.index)
-  .post(isLoggedIn, validateCampground, campgroundControllers.createCampground);
+  .post(
+    isLoggedIn,
+    upload.array("image"),
+    validateCampground,
+    campgroundControllers.createCampground
+  );
 
 router.get("/new", isLoggedIn, campgroundControllers.renderNewForm);
 
