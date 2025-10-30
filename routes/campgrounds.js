@@ -8,39 +8,29 @@ const {
 
 const router = express.Router();
 
-router.get("/", campgroundControllers.index);
+router
+  .route("/")
+  .get(campgroundControllers.index)
+  .post(isLoggedIn, validateCampground, campgroundControllers.createCampground);
 
 router.get("/new", isLoggedIn, campgroundControllers.renderNewForm);
 
-router.post(
-  "/",
-  isLoggedIn,
-  validateCampground,
-  campgroundControllers.createCampground
-);
-
-router.get("/:id", campgroundControllers.showCampground);
+router
+  .route("/:id")
+  .get(campgroundControllers.showCampground)
+  .put(
+    isLoggedIn,
+    isAuthorized,
+    validateCampground,
+    campgroundControllers.updateCampground
+  )
+  .delete(isLoggedIn, isAuthorized, campgroundControllers.deleteCampground);
 
 router.get(
   "/:id/edit",
   isLoggedIn,
   isAuthorized,
   campgroundControllers.renderEditForm
-);
-
-router.put(
-  "/:id",
-  isLoggedIn,
-  isAuthorized,
-  validateCampground,
-  campgroundControllers.updateCampground
-);
-
-router.delete(
-  "/:id",
-  isLoggedIn,
-  isAuthorized,
-  campgroundControllers.deleteCampground
 );
 
 module.exports = router;
