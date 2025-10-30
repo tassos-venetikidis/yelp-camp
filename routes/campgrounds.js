@@ -1,5 +1,4 @@
 const express = require("express");
-const Campground = require("../models/campground");
 const campgroundControllers = require("../controllers/campgrounds");
 const {
   isLoggedIn,
