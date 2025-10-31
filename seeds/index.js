@@ -26,7 +26,16 @@ const seedDB = async () => {
       author: "68fb5ddcd5350a45acd61cc0",
       title: `${descriptors[randomDescriptorNumber]} ${places[randomPlacesNumber]}`,
       location: `${cities[randomCityNumber].city}, ${cities[randomCityNumber].state}`,
-      image: `https://picsum.photos/400?random=${Math.random()}`,
+      images: [
+        {
+          url: `https://picsum.photos/400?random=${Math.random()}`,
+          filename: "Random Picsum Image",
+        },
+        {
+          url: `https://picsum.photos/400?random=${Math.random()}`,
+          filename: "Random Picsum Image",
+        },
+      ],
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil in ipsum natus nisi, sequi nostrum voluptatibus delectus aut. Delectus iste totam voluptatum exercitationem ducimus eaque iure natus animi beatae voluptas corrupti possimus minus enim nisi earum hic est, atque temporibus nostrum, rerum nesciunt cumque, omnis repellat. Laboriosam, consectetur! Odio, quas!",
       price,
