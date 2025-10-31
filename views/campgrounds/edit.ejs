@@ -5,6 +5,7 @@
     <form
       action="/campgrounds/<%= campground._id %>?_method=PUT"
       method="post"
+      enctype="multipart/form-data"
       class="validated-form"
       novalidate
     >
@@ -28,18 +29,6 @@
           id="location"
           name="campground[location]"
           value="<%= campground.location %>"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="image">Image URL</label>
-        <input
-          class="form-control"
-          type="text"
-          id="image"
-          name="campground[image]"
-          value="<%= campground.image %>"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -73,6 +62,30 @@
 <%= campground.description %></textarea
         >
         <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Add More Images</label>
+        <input
+          class="form-control"
+          type="file"
+          name="image"
+          id="image"
+          multiple
+        />
+      </div>
+      <div class="mb-3">
+        <% for (const [index, image] of campground.images.entries()) { %>
+        <img src="<%= image.thumbnail %>" class="img-thumbnail" alt="" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            name="deleteImages[]"
+            id="image-<%= index %>"
+            value="<%= image.filename %>"
+          />
+          <label for="image-<%= index %>">Delete?</label>
+        </div>
+        <% } %>
       </div>
       <div class="mb-3">
         <button type="submit" class="btn btn-info">

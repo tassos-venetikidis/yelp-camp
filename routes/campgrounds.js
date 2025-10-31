@@ -29,6 +29,7 @@ router
   .put(
     isLoggedIn,
     isAuthorized,
+    upload.array("image"),
     validateCampground,
     campgroundControllers.updateCampground
   )
