@@ -36,6 +36,10 @@ const seedDB = async () => {
           filename: "Random Picsum Image",
         },
       ],
+      geometry: {
+        type: "Point",
+        coordinates: [20, 40],
+      },
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil in ipsum natus nisi, sequi nostrum voluptatibus delectus aut. Delectus iste totam voluptatum exercitationem ducimus eaque iure natus animi beatae voluptas corrupti possimus minus enim nisi earum hic est, atque temporibus nostrum, rerum nesciunt cumque, omnis repellat. Laboriosam, consectetur! Odio, quas!",
       price,
