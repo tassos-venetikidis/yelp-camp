@@ -17,7 +17,7 @@ mongoose
 const seedDB = async () => {
   await Campground.deleteMany({});
   await Review.deleteMany({});
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 300; i++) {
     let randomCityNumber = Math.floor(Math.random() * cities.length);
     let randomDescriptorNumber = Math.floor(Math.random() * descriptors.length);
     let randomPlacesNumber = Math.floor(Math.random() * places.length);
@@ -38,7 +38,10 @@ const seedDB = async () => {
       ],
       geometry: {
         type: "Point",
-        coordinates: [20, 40],
+        coordinates: [
+          cities[randomCityNumber].longitude,
+          cities[randomCityNumber].latitude,
+        ],
       },
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil in ipsum natus nisi, sequi nostrum voluptatibus delectus aut. Delectus iste totam voluptatum exercitationem ducimus eaque iure natus animi beatae voluptas corrupti possimus minus enim nisi earum hic est, atque temporibus nostrum, rerum nesciunt cumque, omnis repellat. Laboriosam, consectetur! Odio, quas!",
