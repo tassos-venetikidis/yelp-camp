@@ -10,6 +10,7 @@
         <% for (const [index, image] of campground.images.entries()) { %>
         <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
           <img
+            crossorigin="anonymous"
             class="d-block w-100"
             src="<%= image.url %>"
             alt="Carousel slide"
