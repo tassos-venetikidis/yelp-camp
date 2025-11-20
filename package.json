@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "22.14.0"
+  },
   "name": "yelp_camp",
   "version": "1.0.0",
   "description": "A locator app of campgrounds with their associated information and reviews.",
